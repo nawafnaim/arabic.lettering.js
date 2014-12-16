@@ -50,13 +50,51 @@ arabicLetterToFormMapper["65276"] = [0xFEFC, 0xFEFC, 0xFEFC, 0xFEFB]; // LAM WIT
 
 
 /*
-@return array with two elements:
-    1. hex for positional form
-    2. int for merge status. 0 for no merge and 1 for merged with nextChar
+ @return array with two elements:
+ 1. hex for positional form
+ 2. int for merge status. 0 for no merge and 1 for merged with nextChar
  */
 function lookupPositionalForm(curCharDeci, prevCharDeci, nextCharDeci) {
     var positionalForm, mergeStatus = 0;
-    var wordBoundary = [" ", 9, 10, 13, 32, 40, 41, 46, 58, 1548];
+    var wordBoundary = [
+        9, // \t
+        10, // \n
+        13, // \r
+        32, // \s
+        33, // !
+        34, // "
+        35, // #
+        36, // $
+        37, // %
+        38, // &
+        39, // '
+        40, // (
+        41, // )
+        42, // *
+        43, // +
+        44, // ,
+        45, // -
+        46, // .
+        47, // /
+        48, 49, 50, 51, 52, 53, 54, 55, 56, 57, // 0 - 9
+        58, // :
+        59, // ;
+        60, // <
+        61, // =
+        62, // >
+        63, // ?
+        64, // @
+        91, // [
+        92, // \
+        93, // ]
+        94, // ^
+        95, // _
+        96, // `
+        123, // {
+        124, // |
+        125, // }
+        126, // ~
+        1548];
     // letters with corner cases
     var noConnectAtEndLetters = [
         1570, // ALEF WITH MADDA,
@@ -73,7 +111,6 @@ function lookupPositionalForm(curCharDeci, prevCharDeci, nextCharDeci) {
     // LAM WITH ALEF, LAM WITH ALEF WITH MADDA ABOVE
     var alefs = [1570, 1571, 1573, 1575];
     if (curCharDeci == "1604" && $.inArray(nextCharDeci, alefs) != -1) {
-        console.log(curCharDeci);
         var lamWithAlefDeci;
         switch (nextCharDeci) {
             case "1570":
