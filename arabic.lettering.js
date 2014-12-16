@@ -44,7 +44,6 @@
                     if (resultArr[1] == 1) {
                         merged = 1;
                     }
-                    t.css("padding-bottom", "11px");
                 }
                 inject += '<span class="' + klass + (i + 1) + '" aria-hidden="true">' + item + '</span>' + after;
             });
