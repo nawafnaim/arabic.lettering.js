@@ -1,6 +1,6 @@
 /*global jQuery */
 /*!
- * arabic.lettering.js 0.0.1
+ * arabic.lettering.js 0.0.2
  * https://github.com/nawafnaim/arabic.lettering.js
  *
  * MIT licensed
