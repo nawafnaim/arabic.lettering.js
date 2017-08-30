@@ -24,8 +24,11 @@
             , a = text.split(splitter)
             , inject = '';
         // if arabic text, change text direction to right-to-left
-        if (text.charCodeAt(0) in arabicLetterToFormMapper) {
-            t.parent().css("direction", "rtl");
+        for(i=0; i<text.length; i++) {
+          if (text.charCodeAt(i) in arabicLetterToFormMapper && t['context'].className.startsWith("word")) {
+            t.css("direction", "rtl");
+            break;
+          }
         }
         if (a.length) {
             var merged = 0;
